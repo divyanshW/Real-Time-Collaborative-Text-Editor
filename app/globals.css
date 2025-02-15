@@ -1,0 +1,235 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 100% 98%;
+    --foreground: 230 50% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 230 50% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 50% 12%;
+
+    --primary: 220 90% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 50% 95%;
+    --secondary-foreground: 220 50% 30%;
+
+    --muted: 220 50% 95%;
+    --muted-foreground: 220 10% 40%;
+
+    --accent: 220 80% 92%;
+    --accent-foreground: 220 90% 30%;
+
+    --destructive: 0 80% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 30% 85%;
+    --input: 220 30% 85%;
+    --ring: 220 90% 55%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 230 20% 10%;
+    --foreground: 220 90% 98%;
+
+    --card: 230 25% 12%;
+    --card-foreground: 220 90% 98%;
+
+    --popover: 230 25% 12%;
+    --popover-foreground: 220 90% 98%;
+
+    --primary: 220 90% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 20% 20%;
+    --secondary-foreground: 220 90% 90%;
+
+    --muted: 220 20% 20%;
+    --muted-foreground: 220 10% 70%;
+
+    --accent: 220 40% 25%;
+    --accent-foreground: 220 90% 90%;
+
+    --destructive: 0 70% 40%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 25%;
+    --input: 220 20% 25%;
+    --ring: 220 90% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border transition-all duration-300 ease-in-out;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* 🎨 Editor Styling */
+.ql-toolbar,
+.ql-container {
+  @apply rounded-lg shadow-sm border border-border transition-all duration-300 ease-in-out;
+}
+
+.dark .ql-toolbar {
+  @apply bg-gray-900 border-gray-800;
+}
+
+.dark .ql-container {
+  @apply bg-gray-950 border-gray-800;
+}
+
+.dark .ql-picker-label,
+.dark .ql-picker-options {
+  @apply text-gray-300;
+}
+
+.dark .ql-stroke {
+  @apply stroke-gray-300;
+}
+
+.dark .ql-fill {
+  @apply fill-gray-300;
+}
+
+/* ✨ Enhanced Text Styling */
+.ql-editor {
+  @apply text-lg leading-relaxed transition-all duration-300 ease-in-out;
+}
+
+.ql-editor p,
+.ql-editor ol,
+.ql-editor ul,
+.ql-editor pre,
+.ql-editor blockquote,
+.ql-editor h1,
+.ql-editor h2,
+.ql-editor h3,
+.ql-editor h4,
+.ql-editor h5,
+.ql-editor h6 {
+  @apply mb-4;
+}
+
+.ql-editor h1 {
+  @apply text-4xl font-extrabold tracking-tight;
+}
+
+.ql-editor h2 {
+  @apply text-3xl font-bold tracking-tight;
+}
+
+.ql-editor h3 {
+  @apply text-2xl font-semibold;
+}
+
+.ql-editor h4 {
+  @apply text-xl font-semibold;
+}
+
+.ql-editor h5 {
+  @apply text-lg font-medium;
+}
+
+.ql-editor h6 {
+  @apply font-medium;
+}
+
+.ql-editor a {
+  @apply text-blue-500 hover:underline;
+}
+
+.ql-editor blockquote {
+  @apply border-l-4 border-gray-400 pl-4 italic text-gray-700 dark:text-gray-300;
+}
+
+.ql-editor code,
+.ql-editor pre {
+  @apply bg-gray-100 rounded p-2 text-sm font-mono;
+}
+
+.dark .ql-editor code,
+.dark .ql-editor pre {
+  @apply bg-gray-800 text-gray-300;
+}
+
+/* 🌟 Smooth UI Enhancements */
+button {
+  @apply px-4 py-2 rounded-lg font-medium transition-all duration-300 ease-in-out;
+}
+
+button:hover {
+  @apply shadow-md scale-105;
+}
+
+input, textarea {
+  @apply px-3 py-2 border rounded-lg transition-all duration-300 ease-in-out;
+}
+
+input:focus, textarea:focus {
+  @apply outline-none ring-2 ring-primary;
+}
+/* Move Toggle Theme to the top-right */
+.toggle-theme-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: hsl(var(--primary));
+  color: var(--primary-foreground);
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.toggle-theme-btn:hover {
+  background-color: hsl(var(--primary), 0.8);
+  transform: scale(1.05);
+}
+
+/* Save Document Button Style */
+.save-btn {
+  background-color: rgb(45, 217, 45);
+  color: var(--accent-foreground);
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.save-btn:hover {
+  background-color: hsl(var(--accent), 0.8);
+  transform: scale(1.05);
+}
+
+/* Fix Toolbar Dropdown */
+.ql-toolbar .ql-picker {
+  background: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ql-toolbar .ql-picker:hover {
+  background: hsl(var(--muted));
+}
